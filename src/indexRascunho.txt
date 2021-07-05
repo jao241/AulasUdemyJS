@@ -1,0 +1,239 @@
+// let weight = 82.5;
+
+// let person = {
+//   name: "João",
+//   age: 19,
+//   stars: 4.7,
+//   usSubscribed: true
+// };
+
+// let student = {
+//   name: "João",
+//   age: 19,
+//   stars: 4.7,
+//   usSubscribed: true,
+//   weight: 82.5
+// };
+// //console.log(typeof student);
+// //console.log(  `${student.name}, de idade ${student.age} pesa ${student.weight} kg.`);
+
+// let students = [student];
+// console.log(students);
+
+// Algoritmo que transforma notas do sistema númerico para o sistema
+// de caracteres.
+
+// let notaCaractere = (notaNumerica = 0) => {
+//   if (notaNumerica < 60) {
+//     return "F";
+//   } else if (notaNumerica >= 60 && notaNumerica <= 69) {
+//     return "D";
+//   } else if (notaNumerica >= 70 && notaNumerica <= 79) {
+//     return "C";
+//   } else if (notaNumerica >= 80 && notaNumerica <= 89) {
+//     return "B";
+//   } else if (notaNumerica >= 90) {
+//     return "A";
+//   } else if (typeof notaNumerica !== "number") {
+//     return "Passe valores numéricos";
+//   }
+// };
+// // Para obter valor passe valores numéricos
+// console.log(notaCaractere(231));
+
+// Programa de fluxo de caixa familiar
+
+// let contaFamiliar = {
+//   receitas: [213, 3432, 75, 111],
+//   despesas: [231, 900, 11, 2]
+// };
+
+// function somatorioValoresNoArray(valor = []) {
+//   let valorTotal = 0;
+//   for (let x = 0; x < valor.length; x++) {
+//     valorTotal += valor[x];
+//   }
+
+//   return valorTotal;
+// }
+
+// function calcularSaldo() {
+//   let receitaTotal =
+//     somatorioValoresNoArray(contaFamiliar.receitas) -
+//     somatorioValoresNoArray(contaFamiliar.despesas);
+//   if (receitaTotal >= 0) {
+//     return `O saldo da familia é positivo e o valor é ${receitaTotal}`;
+//   } else {
+//     return `O saldo da família é negativo e o valor é ${receitaTotal}`;
+//   }
+// }
+
+// console.log(calcularSaldo());
+
+// Celcius para fharenheit
+
+// function converte(valor = "") {
+//   let array = valor.toUpperCase().split("°");
+//   let resposta = `De ${valor} para `;
+//   if (array[1] === "C") {
+//     return resposta + (Number(array[0] - 32) * (5 / 9)).toFixed(0) + "°F";
+//   } else if (array[1] === "F") {
+//     return resposta + (array[0] * (9 / 5) + 32).toFixed(0) + "°C";
+//   } else {
+//     return "Digite valores no formato: (temperatura°C) ou (temperatura°F).";
+//   }
+// }
+
+// console.log(converte("2°F"));
+
+// let pessoa = {
+//   nome: "joao",
+//   age: 19
+// };
+
+// for (let propriedade in pessoa) {
+//     console.log(pessoa[propriedade]);
+// }
+
+// let nome = "João Vitor";
+// for (let char of nome) {
+//   console.log(char);
+// }
+
+const booksByCategory = [
+  {
+    category: "Riqueza",
+    books: [
+      {
+        title: "Os segredos da mente milionária",
+        author: "T. Harv Eker" //T. Harv Eker
+      },
+      {
+        title: "O homem mais rico da babilônia",
+        author: "George S. Clason" //George S. Clason
+      },
+      {
+        title: "Pai rico, pai pobre",
+        author: "Robert T. Kiyosaki e Sharon L. Lechter"
+      }
+    ]
+  },
+  {
+    category: "Inteligencia Emocional",
+    books: [
+      {
+        title: "Você é insubstituível",
+        author: "Augusto Cury"
+      },
+      {
+        title: "Ansiedade - Como enfrentar o mal do século",
+        author: "Augusto Cury"
+      },
+      {
+        title: "Os 7 hábitos das pessoas altamente eficazes",
+        author: "Stephen R. Covey"
+      }
+    ]
+  }
+];
+
+{
+  let totalCategory = booksByCategory.length;
+  //retorna em um array o total de livros em cada categoria.
+  let totalLivrosCategoria = function () {
+    totalLivrosCategoria = [];
+    for (let i = 0; i < totalCategory; i++) {
+      for (let value of booksByCategory) {
+        totalLivrosCategoria[i] = value.books.length;
+      }
+    }
+    return totalLivrosCategoria;
+  };
+
+  //Exibição do total de categorias e o total de livros em cada
+  //categoria.
+  function exibirTotalLivrosPorCategoria() {
+    let totalLivros = totalLivrosCategoria().length;
+    console.log(`Total de categorias: ${totalCategory}.`);
+    for (let x = 0; x < totalLivros; x++) {
+      console.log(
+        `O total de livros na categoria '${booksByCategory[x].category}' é de: ${totalLivrosCategoria[x]}`
+      );
+    }
+  }
+  //exibirTotalLivrosPorCategoria();
+}
+{
+  //Revisar esse trecho de código
+  let TotalAutoresLivros = function () {
+    let naCategoria0 = booksByCategory[0].books;
+    let contAutores = 1;
+    console.log(naCategoria0);
+    for (let x = 0; x < naCategoria0.length; x++) {
+      function verifica() {
+        for (let y = 1; y <= naCategoria0.length; y++) {
+          if (naCategoria0[x].author !== naCategoria0[y].author) {
+            return true;
+          } else {
+            return false;
+          }
+        }
+      }
+      if (verifica()) {
+        contAutores++;
+      }
+    }
+    console.log(contAutores);
+  };
+
+  //TotalAutoresLivros();
+}
+// console.log(`Títulos: `);
+// for (let value of booksByCategory[1].books) {
+//   if (value.author === "Augusto Cury") {
+//     console.log(`${value.title} | By Augustu Cury.`);
+//   }
+// }
+function retornaTituloNomes(nomeAutor) {
+  //Objeto que possui o nome do autor passado como parâmetro e o nome
+  //de suas obras.
+  let autorLivros = { nome: nomeAutor, qtdObras: 0, titulos: [] };
+  for (let value of booksByCategory) {
+    for (let books of value.books) {
+      if (books.author === nomeAutor) {
+        autorLivros.titulos[autorLivros.qtdObras] = books.title;
+        autorLivros.qtdObras++;
+      }
+    }
+  }
+  return autorLivros;
+}
+{
+  /*
+   title: "Os segredos da mente milionária",
+        author: "T. Harv Eker" //T. Harv Eker
+      },
+      {
+        title: "O homem mais rico da babilônia",
+        author: "George S. Clason" //George S. Clason
+      },
+      {
+        title: "Pai rico, pai pobre",
+        author: "Robert T. Kiyosaki e Sharon L. Lechter"
+      }
+
+      {
+        title: "Você é insubstituível",
+        author: "Augusto Cury"
+      },
+      {
+        title: "Ansiedade - Como enfrentar o mal do século",
+        author: "Augusto Cury"
+      },
+      {
+        title: "Os 7 hábitos das pessoas altamente eficazes",
+        author: "Stephen R. Covey"
+      }
+*/
+}
+console.log(retornaTituloNomes("Augusto Cury"));
