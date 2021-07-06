@@ -19,3 +19,13 @@
 // let sReg = /\S/; //s
 // let pontoReg = /./;
 // console.log(pontoReg.test("a"));
+
+// let dReg = /\d\d\d\d/;
+// console.log(dReg.test("111"));
+
+// let dRegPlus = /\d+/;
+
+// console.log(dRegPlus.test("11111"));
+
+let verificaSomenteNum = /\d{5}-\d{4}/;
+console.log(verificaSomenteNum.test("99999-999"));
